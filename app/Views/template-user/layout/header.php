@@ -21,7 +21,7 @@
     </nav>
 
     <div class="flex flex-col mt-20 text-slate-100 justify-center items-center">
-        <h1 class="text-center text-[4rem] font-semibold leading-20">Your Project <br/> is Our Priority</h1>
+        <h1 class="hubungi-kami text-center text-[4rem] font-semibold leading-20">Your Project <br/> is Our Priority</h1>
         <p class="mt-10 text-center">Percayakan kebutuhan konstruksi Anda kepada PT. Mitra Langgeng Teknik – mitra tepercaya di
             <br/> bidang General Contractor, Supplier, & Maintenance Service. Kami berkomitmen menghadirkan 
             <br/> solusi terbaik dengan standar tinggi, efisiensi, dan kepuasan Anda sebagai prioritas utama.</p>

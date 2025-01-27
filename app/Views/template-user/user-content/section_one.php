@@ -1,4 +1,4 @@
-<section class="mt-64 flex flex-col relative">
+<section class="mx-12 mt-64 flex flex-col relative">
   <!-- Title -->
   <div class="text-center text-[2.5rem]">
     <h1 class="text-[#0C0A0A] font-semibold">Layanan Kami</h1>
@@ -7,8 +7,8 @@
   <!-- Content -->
   <div class="relative flex sm:flex-col md:flex-row items-start justify-center">
     <!-- Left Side: Image -->
-    <div class="relative top-[-5rem] left-[-1rem] w-[50%]">
-      <img class="w-full" src="<?= base_url('assets/img/people.png') ?>" alt="Construction People">
+    <div class="relative top-[-5rem] left-[-1rem] w-[50%] z-10">
+      <img class="w-full" draggable="false" src="<?= base_url('assets/img/people.png') ?>" alt="Construction People">
     </div>
 
     <!-- Right Side: Service Grid -->

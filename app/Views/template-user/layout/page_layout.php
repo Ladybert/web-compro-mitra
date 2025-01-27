@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth focus:scroll-auto" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,12 @@
 
     <!-- Tailwindcss link -->
     <link href="<?= base_url('dist/output.css') ?>" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="<?= base_url('src/global.css') ?>">
+
+    <!-- Jquery link -->
+    <script src="<?= base_url('src/js/jquery-3.7.1.min.js') ?>"></script>
 
     <style>
         * {
@@ -37,18 +43,24 @@
     </style>
 
 </head>
-<body class="scrollbar-custom">
+<body class="scrollbar-custom flex flex-col min-h-screen">
     
    <!-- Header -->
    <?= $this->include('template-user/layout/header') ?>
 
     <!-- Main Content -->
-     <main class="mx-12">
+     <main class="">
          <?= $this->include('template-user/user-content/section_one') ?>
          <?= $this->include('template-user/user-content/section_two') ?>
+
+         <div id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#0C0A0A] shadow-lg cursor-pointer opacity-0 transition-opacity duration-300 hover:scale-110 duration-300 transition-all">
+            <img class="w-full p-3" src="<?= base_url('assets/img/up-arrow.png') ?>" alt="Up Arrow">
+        </div>
      </main>
 
     <!-- Footer -->
     <?= $this->include('template-user/layout/footer') ?>
+
+    <script src="<?= base_url('src/js/app.js') ?>"></script>
 </body>
 </html>

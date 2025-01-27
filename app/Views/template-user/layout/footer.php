@@ -1,6 +1,6 @@
-<footer class="bg-[#1E1D24] text-[#CACACA] pt-8 mt-32">
+<footer class="bg-[#1E1D24] text-[#CACACA] z-40 pt-16">
   <div class="mx-12 px-4">
-    <div class="grid w-full grid-cols-1 md:grid-cols-3 gap-x-2 place-content-center">
+    <div class="grid w-full grid-cols-1 md:grid-cols-3 gap-x-2 place-content-center pb-20">
       <!-- Logo & Company Info -->
       <div>
         <img src="<?= base_url('assets/img/logo-light.png') ?>" alt="Logo PT Mitra Langgeng Teknik" class="w-[50% ] mb-4">
@@ -17,7 +17,7 @@
       <!-- Contact Info -->
       <div class="pt-8 md:pl-24">
         <h3 class="text-white text-lg font-semibold mb-4">Kontak Kami</h3>
-        <p class="text-sm leading-relaxed">
+        <p class="text-sm pt-4 leading-relaxed">
           Dusun Babatan RT.013 RW.03<br>
           Panjunan, Sukodono, Sidoarjo
         </p>
@@ -31,7 +31,7 @@
       <!-- Services -->
       <div class="pt-8 md:pl-24">
         <h3 class="text-white text-lg font-semibold mb-4">Layanan</h3>
-        <ul class="space-y-2 text-sm">
+        <ul class="space-y-4 pt-4 text-sm">
           <li>Jasa Pelaksana Konstruksi<br/> Bangunan</li>
           <li>Jasa Pelaksana Mechanical<br/> dan Electrical</li>
           <li>Jasa Pelaksana Swimming<br/> Pool</li>
