@@ -10,7 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Document name -->
-    <title><?= $title = "PT Mitra Langgeng Teknik - Home"?></title>
+    <title><?= $title ?></title>
+
+    <!-- PT Mitra Langgeng Teknik Logo Picture -->
+     <link rel="shortcut icon" href="<?= base_url('assets/img/logo-pt.png') ?>" type="image/x-icon">
 
     <!-- Tailwindcss link -->
     <link href="<?= base_url('dist/output.css') ?>" rel="stylesheet">
@@ -21,37 +24,18 @@
     <!-- Jquery link -->
     <script src="<?= base_url('src/js/jquery-3.7.1.min.js') ?>"></script>
 
-    <style>
-        * {
-            font-family: "Montserrat", monospace;
-        }
-
-        .scrollbar-custom::-webkit-scrollbar {
-        width: 6px; 
-        height: 6px;
-        }
-
-        .scrollbar-custom::-webkit-scrollbar-thumb {
-        background-color: rgba(199, 200, 204, 0.5);
-        border-radius: 4px;
-        }
-
-        .scrollbar-custom::-webkit-scrollbar-track {
-        background-color: rgba(12, 10, 10, 1); /* Track transparan */
-        }
-
-    </style>
-
 </head>
 <body class="scrollbar-custom flex flex-col min-h-screen">
     
    <!-- Header -->
-   <?= $this->include('template-user/layout/header') ?>
+    <header id="Beranda">
+        <?= $this->include('template-user/landing-page-layout/navbar') ?>
+        <?= $this->include('template-user/landing-page-layout/header') ?>
+    </header>
 
     <!-- Main Content -->
      <main class="">
-         <?= $this->include('template-user/user-content/section_one') ?>
-         <?= $this->include('template-user/user-content/section_two') ?>
+         <?= $this->renderSection('content') ?>
 
          <div id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#0C0A0A] shadow-lg cursor-pointer opacity-0 transition-opacity duration-300 hover:scale-110 duration-300 transition-all">
             <img class="w-full p-3" src="<?= base_url('assets/img/up-arrow.png') ?>" alt="Up Arrow">
@@ -59,7 +43,7 @@
      </main>
 
     <!-- Footer -->
-    <?= $this->include('template-user/layout/footer') ?>
+    <?= $this->include('template-user/landing-page-layout/footer') ?>
 
     <script src="<?= base_url('src/js/app.js') ?>"></script>
 </body>
