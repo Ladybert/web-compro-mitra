@@ -94,4 +94,18 @@ nav.sticky {
   .animate-slide-out {
     animation: slide-out 0.3s ease forwards;
   }
-  
+
+  /* spinner loading */
+  .loader {
+    width: 7em;
+    height: 7em;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

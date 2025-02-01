@@ -30,11 +30,11 @@
    <!-- Header -->
     <header id="Beranda">
         <?= $this->include('template-user/landing-page-layout/navbar') ?>
-        <?= $this->include('template-user/landing-page-layout/header') ?>
+        <?= $this->renderSection('header') ?>
     </header>
 
     <!-- Main Content -->
-     <main class="">
+     <main>
          <?= $this->renderSection('content') ?>
 
          <div id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#0C0A0A] shadow-lg cursor-pointer opacity-0 transition-opacity duration-300 hover:scale-110 duration-300 transition-all">

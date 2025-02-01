@@ -15,4 +15,10 @@ class Home extends BaseController
         $data['title'] = "PT Mitra Langgeng Teknik | Company Profile";
         return view('template-user/company-profile-layout/main_content',$data);
     }
+
+    public function contact(): string 
+    {
+        $data['title'] = "PT Mitra Langgeng Teknik | Contact";
+        return view('template-user/contact-layout/main_content',$data);
+    }
 }

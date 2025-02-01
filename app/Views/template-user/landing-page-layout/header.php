@@ -14,3 +14,6 @@
         </a>
     </div>
 </div>
+<div id="loading-screen" class="hidden fixed inset-0 flex justify-center items-center top-0 left-0 w-full h-full bg-[#0C0A0A] z-[10000]">
+    <div class="loader"></div>
+</div>

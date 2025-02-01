@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/mitra-langgeng-teknik-company-profile', 'Home::ComPro');
+$routes->get('/mitra-langgeng-teknik-contact-page', 'Home::contact');

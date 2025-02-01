@@ -211,3 +211,55 @@ $(document).ready(function () {
   $navLinks.css("color", defaultLightColor);
   setInitialActiveState();
 });
+
+$(document).ready(function () {
+  const $agreeButton = $("#aggreementButton");
+  const $agreeCheck = $("#agreementCheck");
+
+  // Di awal, disable button
+  $agreeButton.prop("disabled", true).addClass("cursor-not-allowed opacity-50");
+
+  // Cek saat checkbox di-klik
+  $agreeCheck.on("change", function () {
+    if ($(this).is(":checked")) {
+      $agreeButton.prop("disabled", false).removeClass("cursor-not-allowed opacity-50");
+    } else {
+      $agreeButton.prop("disabled", true).addClass("cursor-not-allowed opacity-50");
+    }
+  });
+});
+
+// $(document).ready(function () {
+//   $(window).on("load", function () {
+//     $("body").css("overflow", "hidden");
+//       setTimeout(function () {
+//           $("#loading-screen").fadeOut("slow");
+//           $("body").css("overflow", "auto");
+//       }, 1000);
+//   });
+
+//   // Tangani klik pada link
+//   $("a").on("click", function (e) {
+//       let href = $(this).attr("href");
+
+//       if (!href || href === "#") return;
+
+//       let targetUrl = new URL(href, window.location.origin);
+//       let currentUrl = window.location.pathname;
+//       let isSamePage = targetUrl.pathname === currentUrl;
+
+//       if (isSamePage && targetUrl.hash) return;
+
+//       e.preventDefault(); 
+//       if (href && linkPage !== currentPage && target !== "_blank") {
+//         e.preventDefault(); 
+//         $("#loading-screen").fadeIn("fast", function () {
+//             setTimeout(function () {
+//                 window.location.href = href;
+//             }, 1500);
+//         });
+//     }
+//   });
+// });
+
+

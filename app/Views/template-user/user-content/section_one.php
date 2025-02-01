@@ -7,7 +7,7 @@
   <!-- Content -->
   <div class="relative flex flex-col md:flex-row items-start justify-center">
     <!-- Left Side: Image -->
-    <div class="relative top-[-1rem] md:top-[1rem] left-[2rem] md:left-[-1rem] w-5/6 md:w-[50%] z-10">
+    <div class="relative top-[-1rem] md:top-[1rem] lg:top-[-5rem] left-[2rem] md:left-[-1rem] w-5/6 md:w-[50%] z-10">
       <img class="w-full" draggable="false" src="<?= base_url('assets/img/people.png') ?>" alt="Construction People">
     </div>
 
