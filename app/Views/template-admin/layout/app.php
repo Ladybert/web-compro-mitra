@@ -19,32 +19,28 @@
     <link href="<?= base_url('dist/output.css') ?>" rel="stylesheet">
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="<?= base_url('src/global.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('src/admin.css') ?>">
 
     <!-- Jquery link -->
     <script src="<?= base_url('src/js/jquery-3.7.1.min.js') ?>"></script>
 
 </head>
-<body class="scrollbar-custom flex flex-col min-h-screen">
-    
-   <!-- Header -->
-    <header id="Beranda">
-        <?= $this->include('template-user/landing-page-layout/navbar') ?>
-        <?= $this->renderSection('header') ?>
-    </header>
+<body class="scrollbar-custom flex flex-col justify-center w-screen h-screen bg-gray-200">
 
-    <!-- Main Content -->
-     <main>
-         <?= $this->renderSection('content') ?>
+    <div class="flex w-full h-full">
+        
+        <!-- Sidebar / Aside -->
+        <aside>
+            <?= $this->include('template-admin/layout/aside') ?>
+        </aside>
 
-         <div id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#0C0A0A] shadow-lg cursor-pointer opacity-0 transition-opacity duration-300 hover:scale-110 duration-300 transition-all">
-            <img class="w-full p-3" src="<?= base_url('assets/img/up-arrow.png') ?>" alt="Up Arrow">
-        </div>
-     </main>
+        <!-- Main Content -->
+        <main class="flex-1 p-6 overflow-auto">
+            <?= $this->renderSection('content') ?>
+        </main>
 
-    <!-- Footer -->
-    <?= $this->include('template-user/landing-page-layout/footer') ?>
+    </div>
 
-    <script src="<?= base_url('src/js/app.js') ?>"></script>
+    <script src="<?= base_url('src/js/admin.js') ?>"></script>
 </body>
 </html>

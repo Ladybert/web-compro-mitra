@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\ContentModel;
 
 class Home extends BaseController
 {
     public function index(): string
     {
-        $data['title'] = "PT Mitra Langgeng Teknik | Home";
+        $contentModel = new ContentModel();
+        $data = [
+            'title' => "PT Mitra Langgeng Teknik | Home",
+            'contents' => $contentModel->getContent(),
+        ];
         return view('template-user/user-content/landing_page_content', $data);
     }
 
