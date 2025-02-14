@@ -15,6 +15,8 @@ $routes->group('admin', ['filter' => 'adminAuth'], function($routes) {
     $routes->get('dashboard', 'Admin::dashboard');
     $routes->get('content', 'Admin::content');
     $routes->post('content/add-content-process', 'Admin::storeContent');
+    $routes->post('content/update-content-process/(:any)', 'Admin::updateContent/$1');
+    $routes->post('content/delete/(:any)', 'Admin::deleteContent/$1');
     $routes->get('message', 'Admin::message');
 });
 

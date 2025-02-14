@@ -1,7 +1,7 @@
 <?= $this->extend('template-admin/layout/app') ?>
 
 <?= $this->section('content'); ?>
-<!-- modal start -->
+<!-- Modal create start -->
 <?php if (session()->getFlashdata('error')) : ?>
     <div class="flash-message mb-6 mx-auto px-8 py-4 border border-red-600 rounded-md w-full bg-red-100 text-red-700 font-medium transition-all duration-300">
         <?= session()->getFlashdata('error') ?>
@@ -34,7 +34,37 @@
         </form>
     </div>
 </div>
-<!-- modal end -->
+<!-- Modal create end -->
+
+<!-- Modal edit start -->
+<div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white p-6 rounded-md shadow-lg w-1/3 my-20">
+        <h2 class="text-xl font-semibold border-b pb-2 mb-4">Edit Content</h2>
+        <form id="updateContentForm" class="space-y-4" action="" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="dataContentTitle" class="block text-sm font-medium text-gray-700">Content Title</label>
+                <input type="text" required id="dataContentTitle" name="content_title"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input id="dataContentId" name="contentId" type="hidden">
+            </div>
+            <div>
+                <label for="updateContentImage" class="block text-sm font-medium text-gray-700">Upload Image</label>
+                <input type="file" id="updateContentImage" name="content_img" accept="image/*"
+                    class="mt-1 block w-full">
+                <div id="updateImagePreview" class="flex justify-center items-center mt-4 hidden">
+                    <img id="updatePreview" class="w-64 object-cover rounded-md border border-gray-300">
+                </div>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="closeContentModal"
+                    class="px-4 py-2 bg-gray-400 rounded-md text-slate-100 font-medium hover:bg-gray-500 transition duration-300">Cancel</button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-600 rounded-md text-slate-100 font-medium hover:bg-blue-700 transition duration-300">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Modal Edit End -->
  
 <div class="flex w-full mb-4">
     <div class="flex flex-col justify-center items-start text-xl font-semibold text-slate-800 bg-white px-10 pt-6 pb-2 w-full rounded-md shadow-md shadow-[#1F3C88]/25">
@@ -72,13 +102,19 @@
                                     <td class="p-2 font-semibold text-slate-500">
                                         <?= $content['updated_at'] ?>
                                     </td>
-                                    <td class="p-2 flex flex-col my-8 justify-between space-y-2">
-                                        <a href="#" class="text-gray-800 hover:bg-slate-300 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
+                                    <td class="p-2 flex flex-col my-8 justify-between">
+                                        <a id="openContentModal"
+                                            data-id="<?= $content['id'] ?>"
+                                            data-title=" <?= $content['title'] ?>" 
+                                            data-img="<?= base_url('uploads/'. $content['image']); ?>" 
+                                            href="#" class="text-gray-800 hover:bg-slate-300 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
                                             edit
                                         </a>
-                                        <a href="#" onclick="return confirm('Apa anda yakin untuk menghapus konten ini ?');" class="text-red-600 hover:bg-slate-100 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
-                                            delete
-                                        </a>
+                                        <form action="<?= base_url('admin/content/delete/'.$content['id']) ?>" method="post">
+                                            <button type="submit" onclick="return confirm('Apa anda yakin untuk menghapus konten ini ?');" class="text-red-600 hover:bg-slate-100 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
+                                                delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
