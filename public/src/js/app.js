@@ -229,6 +229,29 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function() {
+  $('input[type="email"]').on('input', function() {
+      let email = $(this).val();
+      let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (pattern.test(email)) {
+          $(this).removeClass('focus:ring-red-500').addClass('focus:ring-[#1F3C88]');
+      } else {
+          $(this).removeClass('focus:ring-[#1F3C88]').addClass('focus:ring-red-500');
+      }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const forms = document.querySelectorAll('form');
+  forms.forEach(function(form) {
+      form.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+              e.preventDefault();
+          }
+      });
+  });
+});
+
 // $(document).ready(function () {
 //   $(window).on("load", function () {
 //     $("body").css("overflow", "hidden");

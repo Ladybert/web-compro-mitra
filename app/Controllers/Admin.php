@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\FormDataModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
@@ -19,15 +20,22 @@ class Admin extends BaseController
     }
     public function dashboard()
     {
-        $session = session();
-        $contentModel = new ContentModel();
-
-        $data = [
-            'title' => "MLT Admin | Dashboard",
-            'userName' => $session->get('userName'),
-            'total_content' => $contentModel->countAllResults(),
-        ];
-        return view('template-admin/admin-page/dashboard_page', $data);
+            $session = session();
+            $contentModel = new ContentModel();
+            $formDataModel = new FormDataModel();
+            $check = $contentModel->countAllResults();
+            $checkMessage = $formDataModel->countAllResults();
+        
+            $output['total_content'] = ($check === 0) ? 'belum ada' : $check;
+            $output['total_message'] = ($checkMessage === 0) ? 'belum ada' : $checkMessage;
+        
+            $data = [
+                'title' => "MLT Admin | Dashboard",
+                'userName' => $session->get('userName'),
+                'total_content' =>  $output['total_content'],
+                'total_message' =>  $output['total_message'],
+            ];
+            return view('template-admin/admin-page/dashboard_page', $data);
     }
 
     public function content()
@@ -175,10 +183,52 @@ class Admin extends BaseController
     
     public function message()
     {
+        $formDataModel = new FormDataModel();
+        $messages = $formDataModel->getMessage();
+
+        foreach ($messages as &$message) {
+            $createdAt = strtotime($message['created_at']);
+            $now = strtotime(date('Y-m-d 00:00:00')); // Set waktu sekarang ke awal hari
+            $diff = $now - strtotime(date('Y-m-d 00:00:00', $createdAt));
+
+            if (date('Y-m-d', $createdAt) == date('Y-m-d', $now)) {
+                $message['created_at'] = 'Today';
+            } elseif ($diff < 604800) { // less than 7 days
+                $days = floor($diff / 86400);
+                $message['created_at'] = "$days days ago";
+            } elseif ($diff < 2629743) { // less than 1 month
+                $weeks = floor($diff / 604800);
+                $message['created_at'] = "$weeks weeks ago";
+            } elseif ($diff < 31536000) { // less than 12 months
+                $months = floor($diff / 2629743); // approx. seconds in a month
+                $message['created_at'] = "$months months ago";
+            } else {
+                $years = floor($diff / 31536000); // more than 12 months
+                $message['created_at'] = "$years years ago";
+            }
+
+            $message['created_at_detail'] = strftime("Pukul %H:%M | %A - %d %B %Y", $createdAt);
+        }
+
         $data = [
             'title' => "MLT Admin | Message",
+            'messages' => $messages,
         ];
         return view('template-admin/admin-page/form_response_page', $data);
+    }
+
+    public function deleteMessage($id)
+    {
+        $formDataModel = new FormDataModel();
+
+        $good_job = $formDataModel->where('id', $id)->delete();
+        
+        if ($good_job) {
+            session()->setFlashdata('success', 'Pesan berhasil dihapus');
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus pesan');
+        }
+        return redirect()->to('admin/message');
     }
 
     public function accountPage()

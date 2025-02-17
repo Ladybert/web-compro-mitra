@@ -1,17 +1,17 @@
 <section class="flex justify-center items-center w-full -mt-2 md:-mt-10 my-8">
     <div class="relative flex flex-col md:flex-row justify-center space-x-0 md:space-x-10 lg:space-x-14 bg-white shadow-lg shadow-[#1F3C88]/25 w-full max-w-6xl rounded-xl p-8 md:p-10 lg:px-16 lg:py-12 mx-0 md:mx-14 lg:mx-32">
         <!-- Form -->
-        <form class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 w-full md:w-2/3 text-xs md:text-sm lg:text-base">
-            <input type="text" placeholder="Nama *" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] cursor-text outline-none transition-all duration-500">
-            <input type="email" placeholder="Email *" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] cursor-text outline-none transition-all duration-500">
-            <select class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] outline-none col-span-1 md:col-span-2 cursor-pointer transition-all duration-500">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 w-full md:w-2/3 text-xs md:text-sm lg:text-base" method="post" action="<?= base_url('/contact-page/sending-form-response'); ?>">
+            <input type="text" name="name" placeholder="Nama *" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] cursor-text outline-none transition-all duration-500" required>
+            <input type="email" name="email" placeholder="Email *" id="emailContact" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] cursor-text outline-none transition-all duration-500" required>
+            <select name="service" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] outline-none col-span-1 md:col-span-2 cursor-pointer transition-all duration-500" required>
                 <option selected>Pilih jenis layanan yang diminati</option>
                 <option value="Jasa Pelaksana Konstruksi Bangunan">Jasa Pelaksana Konstruksi Bangunan</option>
                 <option value="Jasa Pelaksana Mechanical dan Electrical">Jasa Pelaksana Mechanical dan Electrical</option>
                 <option value="Jasa Pelaksana Swimming Pool">Jasa Pelaksana Swimming Pool</option>
                 <option value="Jasa Pelaksana Asphalt Road">Jasa Pelaksana Asphalt Road</option>
             </select>
-            <textarea placeholder="Pesan *" rows="4" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] cursor-text outline-none col-span-1 md:col-span-2 transition-all duration-500"></textarea>
+            <textarea name="fill" placeholder="Pesan *" rows="4" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#1F3C88] cursor-text outline-none col-span-1 md:col-span-2 transition-all duration-500" required></textarea>
             <label class="flex items-center gap-2 col-span-1 md:col-span-2 text-gray-600 text-[0.6rem] md:text-xs lg:text-sm">
                 <input id="agreementCheck" type="checkbox" class="accent-[#1F3C88]">
                 Saya menyetujui <a href="#" class="text-[#1F3C88] underline">persyaratan dan kebijakan</a>

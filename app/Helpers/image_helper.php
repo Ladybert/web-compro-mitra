@@ -18,6 +18,6 @@ if (!function_exists('default_image')) {
             $src = base_url($src);
         }
 
-        return '<img src="' . esc($src) . '" alt="' . esc($alt) . '" class="' . esc($class) . '">';
+        return '<img src="' . esc($src) . '" draggable="false" alt="' . esc($alt) . '" class="' . esc($class) . '">';
     }
 }

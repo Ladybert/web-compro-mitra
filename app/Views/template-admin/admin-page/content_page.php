@@ -24,7 +24,7 @@
                 <label for="contentImage" class="block text-sm font-medium text-gray-700">Upload Image</label>
                 <input type="file" required id="contentImage" name="content_img" accept="image/*" class="mt-1 block w-full">
                 <div id="imagePreview" class="flex justify-center items-center mt-4 hidden">
-                    <img id="preview" class="w-64 object-cover rounded-md border border-gray-300">
+                    <img id="preview" draggable="false" class="w-64 object-cover rounded-md border border-gray-300">
                 </div>
             </div>
             <div class="flex justify-end space-x-2">
@@ -37,7 +37,7 @@
 <!-- Modal create end -->
 
 <!-- Modal edit start -->
-<div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+<div id="editModal" class="hidden fixed inset-0 background bg-black bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white p-6 rounded-md shadow-lg w-1/3 my-20">
         <h2 class="text-xl font-semibold border-b pb-2 mb-4">Edit Content</h2>
         <form id="updateContentForm" class="space-y-4" action="" method="post" enctype="multipart/form-data">
@@ -52,7 +52,7 @@
                 <input type="file" id="updateContentImage" name="content_img" accept="image/*"
                     class="mt-1 block w-full">
                 <div id="updateImagePreview" class="flex justify-center items-center mt-4 hidden">
-                    <img id="updatePreview" class="w-64 object-cover rounded-md border border-gray-300">
+                    <img id="updatePreview" draggable="false" class="w-64 object-cover rounded-md border border-gray-300">
                 </div>
             </div>
             <div class="flex justify-end space-x-2">
@@ -67,10 +67,10 @@
 <!-- Modal Edit End -->
  
 <div class="flex w-full mb-4">
-    <div class="flex flex-col justify-center items-start text-xl font-semibold text-slate-800 bg-white px-10 pt-6 pb-2 w-full rounded-md shadow-md shadow-[#1F3C88]/25">
+    <div class="flex flex-col justify-center items-start text-sm md:text-xl font-semibold text-slate-800 bg-white px-4 md:px-10 pt-4 md:pt-6 pb-2 w-full rounded-md shadow-md shadow-[#1F3C88]/25">
         <div class="flex justify-between items-center border-b pb-2 w-full">
             <h1>Content Management</h1>
-            <button id="openModal" class="px-4 py-2 bg-green-600 rounded-md text-white font-medium text-base hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[#000000]/70 hover:shadow-lg transition duration-300">Add new content</button>
+            <button id="openModal" class="px-4 py-2 bg-green-600 rounded-md text-white font-medium text-xs md:text-base hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[#000000]/70 hover:shadow-lg transition duration-300">Buat konten baru</button>
         </div>
         <div class="flex items-center justify-center w-full overflow-hidden">
             <div class="col-span-12 w-full">
@@ -87,37 +87,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i = 1 + ($pager->getCurrentPage() - 1) * $pager->getPerPage(); foreach($contents as $key => $content) : ?>
-                                <tr class="bg-white w-full">
-                                    <td class="p-2 font-semibold text-slate-700"><?php echo $i++; ?></td>
-                                    <td class="p-2">
-                                        <?= default_image($content['image'], 'PROJECT ITEM', 'rounded-md w-72  object-cover') ?>
-                                    </td>
-                                    <td class="p-2 text-wrap font-semibold text-slate-700">
-                                        <?= $content['title'] ?>
-                                    </td>
-                                    <td class="p-2 font-semibold text-slate-500">
-                                        <?= $content['created_at'] ?>
-                                    </td>
-                                    <td class="p-2 font-semibold text-slate-500">
-                                        <?= $content['updated_at'] ?>
-                                    </td>
-                                    <td class="p-2 flex flex-col my-8 justify-between">
-                                        <a id="openContentModal"
-                                            data-id="<?= $content['id'] ?>"
-                                            data-title=" <?= $content['title'] ?>" 
-                                            data-img="<?= base_url('uploads/'. $content['image']); ?>" 
-                                            href="#" class="text-gray-800 hover:bg-slate-300 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
-                                            edit
-                                        </a>
-                                        <form action="<?= base_url('admin/content/delete/'.$content['id']) ?>" method="post">
-                                            <button type="submit" onclick="return confirm('Apa anda yakin untuk menghapus konten ini ?');" class="text-red-600 hover:bg-slate-100 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
-                                                delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach ?>
+                            <?php if(!isset($contents) || empty($contents)) :?>
+                                <div class="bg-blue-100 border border-blue-600 rounded-lg p-4 text-center text-blue-800 font-medium">
+                                    Anda belum membuat konten apapun, tekan tombol <a href="#" class="text-blue-600 underline hover:text-blue-800">Buat konten baru</a> untuk membuatnya.
+                                </div>
+                                <?php else : ?>
+                                    <?php $i = 1 + ($pager->getCurrentPage() - 1) * $pager->getPerPage(); foreach($contents as $key => $content) : ?>
+                                        <tr class="bg-white w-full">
+                                            <td class="p-2 font-semibold text-slate-700"><?php echo $i++; ?></td>
+                                            <td class="p-2">
+                                                <?= default_image($content['image'], 'PROJECT ITEM', 'rounded-md w-72  object-cover') ?>
+                                            </td>
+                                            <td class="p-2 text-wrap font-semibold text-slate-700">
+                                                <?= $content['title'] ?>
+                                            </td>
+                                            <td class="p-2 font-semibold text-slate-500">
+                                                <?= $content['created_at'] ?>
+                                            </td>
+                                            <td class="p-2 font-semibold text-slate-500">
+                                                <?= $content['updated_at'] ?>
+                                            </td>
+                                            <td class="p-2 flex flex-col my-8 justify-between">
+                                                <a id="openContentModal"
+                                                    data-id="<?= $content['id'] ?>"
+                                                    data-title=" <?= $content['title'] ?>" 
+                                                    data-img="<?= base_url('uploads/'. $content['image']); ?>" 
+                                                    href="#" class="text-gray-800 hover:bg-slate-300 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
+                                                    edit
+                                                </a>
+                                                <form action="<?= base_url('admin/content/delete/'.$content['id']) ?>" method="post">
+                                                    <button type="submit" onclick="return confirm('Apa anda yakin untuk menghapus konten ini ?');" class="text-red-600 hover:bg-slate-100 bg-white text-base font-medium text-center rounded-sm px-2 py-1 transition-all duration-300">
+                                                        delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                     <div class="my-4 flex justify-end border-t">

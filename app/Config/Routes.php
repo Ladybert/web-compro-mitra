@@ -18,9 +18,11 @@ $routes->group('admin', ['filter' => 'adminAuth'], function($routes) {
     $routes->post('content/update-content-process/(:any)', 'Admin::updateContent/$1');
     $routes->post('content/delete/(:any)', 'Admin::deleteContent/$1');
     $routes->get('message', 'Admin::message');
+    $routes->post('message/delete/(:any)', 'Admin::deleteMessage/$1');
 });
 
 // client-side routes
 $routes->get('/', 'Home::index');
 $routes->get('/company-profile', 'Home::ComPro');
 $routes->get('/contact-page', 'Home::contact');
+$routes->post('/contact-page/sending-form-response', 'Home::storeFormContact');

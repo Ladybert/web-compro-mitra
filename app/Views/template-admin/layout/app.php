@@ -35,12 +35,13 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 p-6 overflow-auto">
+        <main class="flex-1 p-2 md:p-6 overflow-y-auto">
             <?= $this->renderSection('content') ?>
         </main>
 
     </div>
 
     <script src="<?= base_url('src/js/admin.js') ?>"></script>
+    <script src="<?= base_url('src/js/form_response.js') ?>"></script>
 </body>
 </html>

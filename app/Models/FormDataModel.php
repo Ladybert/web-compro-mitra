@@ -24,7 +24,17 @@ class FormDataModel extends Model
 
     public function insertWithId($data)
     {
-        $data['id'] = $this->generateUniqueId();
-        return $this->insert($data);
+        if (!isset($data['id']) || empty($data['id'])) {
+            $data['id'] = $this->generateUniqueId();
+        }
+
+        $insert = $this->insert($data, true); 
+
+        return $insert ? $data['id'] : false;
+    }
+
+    public function getMessage()
+    {
+        return $this->orderBy('created_at', 'DESC')->findAll(); 
     }
 }
