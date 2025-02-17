@@ -1,0 +1,111 @@
+* {
+    font-family: "Montserrat", monospace;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+width: 6px; 
+height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+background-color: rgba(199, 200, 204, 0.7);
+border-radius: 4px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+background-color: rgb(0, 0, 0);
+}
+
+nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.mobile-menu {
+    z-index: 9999;
+}
+
+#open-menu span {
+    height: 3px;
+    width: 16px;
+    margin: 1px 0;
+    transition: all 0.3s ease;
+}
+
+#close-menu span {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media only screen and (min-width: 768px) {
+    #close-menu span {
+        top: 7%;
+        left: 20%;
+    }
+  }
+
+#close-menu .one {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+  
+#close-menu .two {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Animasi masuk */
+@keyframes slide-in {
+    from {
+      transform: translateX(100%); 
+      opacity: 0; 
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1; 
+    }
+  }
+  
+  /* Animasi keluar */
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+      opacity: 1; 
+    }
+    to {
+      transform: translateX(100%); 
+      opacity: 0; 
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 0.3s ease forwards;
+  }
+  
+  .animate-slide-out {
+    animation: slide-out 0.3s ease forwards;
+  }
+
+  /* spinner loading */
+  .loader {
+    width: 7em;
+    height: 7em;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
