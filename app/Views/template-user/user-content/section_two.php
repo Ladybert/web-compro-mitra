@@ -10,55 +10,16 @@
     <div class="parent mt-8 md:mt-12 px-4 grid grid-cols-1 md:grid-cols-2 gap-8 text-white place-items-center mb-12"> <!-- Ubah gap-y-12 menjadi gap-6 dan tambah px-4 -->
 
     <!-- start item -->
+     <?php foreach($contents as $key => $content) : ?>
       <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
+        <?= default_image($content['image'], 'PROJECT ITEM', 'w-full object-cover') ?>
+          <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">
+                  <?= $content['title']; ?>
+              </p>
+          </div>
       </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      <div class="child cursor-pointer relative group transition-all duration-300 ease-in-out transform hover:-translate-y-4 rounded-lg overflow-hidden shadow-lg shadow-black/50 w-full max-w-lg">
-        <img class="w-full object-cover" src="<?= base_url('assets/img/proyek_om_3.png') ?>" alt="proyek om">
-        <div class="absolute bottom-0 left-0 right-0 bg-black/75 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300">
-          <p class="text-white text-xs md:text-md lg:text-xl font-semibold p-4 text-center">Project Infrastuktur Penunjang Jalan di Pier Pasuruan</p>
-        </div>
-      </div>
-      
+      <?php endforeach; ?>
       <!-- end item -->
 
     </div>
