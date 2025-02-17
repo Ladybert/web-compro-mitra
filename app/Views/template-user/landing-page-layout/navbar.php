@@ -16,8 +16,8 @@
             <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('/#Beranda'); ?>">Beranda</a>
             <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('/#Layanan'); ?>">Layanan</a>
             <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('/#Portofolio'); ?>">Portofolio</a>
-            <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('mitra-langgeng-teknik-company-profile'); ?>">Tentang kami</a>
-            <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('/mitra-langgeng-teknik-contact-page'); ?>">Kontak</a>
+            <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('/company-profile'); ?>">Tentang kami</a>
+            <a class="nav-link text-sm md:text-base  hover:text-slate-300 focus:text-slate-400 transition" href="<?= base_url('/contact-page'); ?>">Kontak</a>
         </div>
 
         <!-- Hamburger menu icon -->
@@ -41,6 +41,6 @@
     <a class="w-full text-left mt-4 mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/#Beranda'); ?>">Beranda</a>
     <a class="w-full text-left mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/#Layanan'); ?>">Layanan</a>
     <a class="w-full text-left mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/#Portofolio'); ?>">Portofolio</a>
-    <a class="w-full text-left mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/mitra-langgeng-teknik-company-profile'); ?>">Tentang kami</a>
-    <a class="w-full text-left mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/mitra-langgeng-teknik-contact-page'); ?>">Kontak</a>
+    <a class="w-full text-left mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/company-profile'); ?>">Tentang kami</a>
+    <a class="w-full text-left mx-2 py-4 px-2 md:px-8 hover:bg-white/50 rounded-lg hover:backdrop-blur-lg focus:text-[#0C0A0A] transition" href="<?= base_url('/contact-page'); ?>">Kontak</a>
 </div>
