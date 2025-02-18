@@ -1,0 +1,5 @@
+'hostname'     => 'localhost',
+'username'     => 'u524077509_web_mlt',
+'password'     => 'BudiMLTWeb_1',
+'database'     => 'u524077509_mlt_database',
+'port'         => '3306' //default

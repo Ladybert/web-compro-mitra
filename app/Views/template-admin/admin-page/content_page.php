@@ -13,7 +13,7 @@
     </div>
 <?php endif; ?>
 <div id="modal" class="hidden fixed inset-0 background flex justify-center items-center z-50">
-    <div class="bg-white p-6 rounded-md shadow-lg w-1/3 my-20">
+    <div class="bg-white p-6 rounded-md shadow-lg w-5/6 lg:w-1/3 my-20">
         <h2 class="text-xl font-semibold border-b pb-2 mb-4">Add New Content</h2>
         <form id="contentForm" class="space-y-4" action="<?= base_url('/admin/content/add-content-process'); ?>" method="post" enctype="multipart/form-data">
             <div>
@@ -38,7 +38,7 @@
 
 <!-- Modal edit start -->
 <div id="editModal" class="hidden fixed inset-0 background bg-black bg-opacity-50 flex justify-center items-center z-50">
-    <div class="bg-white p-6 rounded-md shadow-lg w-1/3 my-20">
+    <div class="bg-white p-6 rounded-md shadow-lg w-5/6 lg:w-1/3 my-20">
         <h2 class="text-xl font-semibold border-b pb-2 mb-4">Edit Content</h2>
         <form id="updateContentForm" class="space-y-4" action="" method="post" enctype="multipart/form-data">
             <div>
